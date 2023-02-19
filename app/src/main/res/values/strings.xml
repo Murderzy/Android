@@ -2,7 +2,10 @@
     <string name="app_name">Basics</string>
     <string name="tv_hello_text">Android Basics</string>
     <string name="calc_add_text">Calc</string>
+    <string name="rates_add_text">Rates</string>
     <string name="exit_add_text">Exit</string>
+    <string name="text_rates_title">Currency</string>
+    <string name="text_rates">Currency Text</string>
 
     <!-- Calculator -->
     <string name="btn_calc_text">Calculator</string>

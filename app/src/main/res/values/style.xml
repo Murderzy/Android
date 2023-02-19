@@ -10,17 +10,17 @@
     </style>
 
     <style name="ButtonOperation" parent="ButtonBase">
-
+        <item name="android:background">@drawable/calc_btn_shape</item>
         <item name="android:textColor">@color/calc_btn_text</item>
     </style>
 
     <style name="ButtonDigit" parent="ButtonBase">
-
+        <item name="android:background">@drawable/calc_digit_shape</item>
         <item name="android:textColor">@color/calc_digit_text</item>
     </style>
 
     <style name="ButtonEqual" parent="ButtonBase">
-
+        <item name="android:background">@drawable/calc_equal_shape</item>
         <item name="android:textColor">@color/calc_equal_text</item>
     </style>
 </resources>
