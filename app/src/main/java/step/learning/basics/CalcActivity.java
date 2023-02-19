@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class CalcActivity extends AppCompatActivity {
 
     private TextView tvHistory;
@@ -42,7 +44,9 @@ public class CalcActivity extends AppCompatActivity {
     private void dotClick(View v)  //  десятичная точка
     {
         String result = tvResult.getText().toString();
-        result += ".";
+        if(!result.contains(".")) {
+            result += ".";
+        }
         tvResult.setText(result);
     }
 
@@ -52,7 +56,8 @@ public class CalcActivity extends AppCompatActivity {
 
         if(result.startsWith("-"))
         {
-            result = (new StringBuilder(result).insert(0,"")).toString();  //  ?
+            //result = (new StringBuilder(result).insert(0,"")).toString();  //  ?
+            result = result.replace("-","+");
         }
         else
         {
@@ -75,6 +80,7 @@ public class CalcActivity extends AppCompatActivity {
         }
         else {
             result += digit;
+            //result = "done";
         }
 
         tvResult.setText(result);
