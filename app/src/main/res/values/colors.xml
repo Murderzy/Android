@@ -18,4 +18,7 @@
     <color name="calc_btn_digit">#383838</color>
     <color name="calc_btn_operation">#2F2F2F</color>
     <color name="calc_btn_equal">#4CC1FE</color>
+
+    <color name="rate_bg_color">#F1D7D7</color>
+    <color name="rate_bg_odd_color">#F4B6B6</color>
 </resources>

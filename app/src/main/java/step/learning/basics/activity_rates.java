@@ -1,9 +1,13 @@
 package step.learning.basics;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -74,7 +78,8 @@ public class activity_rates extends AppCompatActivity {
                 rates.add(new Rate(jrates.getJSONObject(i)));
                 //str.append(rates.toString());
             }
-            new Thread(this::showRates).start();
+            //new Thread(this::showRates).start();
+            runOnUiThread(this::showRates);
 //                 runOnUiThread(()->
 //               tvJson.setText(str.toString()));
         } catch (JSONException e) {
@@ -82,10 +87,46 @@ public class activity_rates extends AppCompatActivity {
         }
     }
 
-    private void showRates()
+    private void showRatesTxt()
     {
 //        runOnUiThread(()->
 //                tvJson.setText(str.toString()));
+    }
+
+    private void showRates()
+    {
+        Drawable ratesBg = AppCompatResources.getDrawable(getApplicationContext(),R.drawable.rates_bg);
+        Drawable oddRatesBg = AppCompatResources.getDrawable(getApplicationContext(),R.drawable.rates_bg_odd);
+        LinearLayout container = findViewById(R.id.ratesContainer);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        layoutParams.setMargins(7,5,7,5);
+
+        LinearLayout.LayoutParams oddLayoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        oddLayoutParams.setMargins(7,5,7,5);
+        oddLayoutParams.gravity = Gravity.END;
+
+        boolean isOdd = true;
+        for(Rate rate : this.rates)
+        {
+            TextView tv = new TextView(this);
+            tv.setText(rate.getTxt() + "\n" + rate.getCc() + " "+rate.getRate());
+            isOdd = !isOdd;
+            if(isOdd)
+            {
+                tv.setBackground(oddRatesBg);
+                tv.setLayoutParams(oddLayoutParams);
+            }
+            //tv.setBackground(ratesBg);
+            tv.setPadding(7,5,7,5);
+            //tv.setLayoutParams(layoutParams);
+            container.addView(tv);
+        }
     }
 
     class Rate{  //  ORM for JSON

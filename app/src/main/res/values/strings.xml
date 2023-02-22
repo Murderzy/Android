@@ -2,6 +2,7 @@
     <string name="app_name">Basics</string>
     <string name="tv_hello_text">Android Basics</string>
     <string name="calc_add_text">Calc</string>
+    <string name="chat_add_text">Chat</string>
     <string name="rates_add_text">Rates</string>
     <string name="exit_add_text">Exit</string>
     <string name="text_rates_title">Currency</string>
@@ -38,4 +39,9 @@
     <string name="btn_calc_7">7</string>
     <string name="btn_calc_8">8</string>
     <string name="btn_calc_9">9</string>
+
+    <string name="chat_user_name">User name:</string>
+    <string name="chat_user">a.trsk</string>
+    <string name="chat_message_title">Msg:</string>
+    <string name="chat_def_msg">Hello</string>
 </resources>

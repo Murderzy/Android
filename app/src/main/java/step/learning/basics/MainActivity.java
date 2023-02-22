@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         Button ratesButton = findViewById(R.id.ratesButton);
         ratesButton.setOnClickListener(this::ratesButtonClick);
 
+        Button chatButton = findViewById(R.id.chatButton);
+        chatButton.setOnClickListener(this::chatButtonClick);
+
         findViewById( R.id.calcButton ).setOnClickListener( this::calcButtonClick ) ;
     }
 
@@ -33,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent ratesIntent = new Intent(this,activity_rates.class);
         startActivity(ratesIntent);
+    }
+
+    private void chatButtonClick(View v)
+    {
+        Intent chatIntent = new Intent(this,ChatActivity.class);
+        startActivity(chatIntent);
     }
 
     private void exitButtonClick(View v)
