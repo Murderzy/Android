@@ -95,6 +95,7 @@ public class activity_rates extends AppCompatActivity {
 
     private void showRates()
     {
+        TextView  t = new TextView(this);
         Drawable ratesBg = AppCompatResources.getDrawable(getApplicationContext(),R.drawable.rates_bg);
         Drawable oddRatesBg = AppCompatResources.getDrawable(getApplicationContext(),R.drawable.rates_bg_odd);
         LinearLayout container = findViewById(R.id.ratesContainer);
@@ -110,10 +111,11 @@ public class activity_rates extends AppCompatActivity {
         );
         oddLayoutParams.setMargins(7,5,7,5);
         oddLayoutParams.gravity = Gravity.END;
-
+        String d ;
         boolean isOdd = true;
         for(Rate rate : this.rates)
         {
+            d = rate.getExchangeDate();
             TextView tv = new TextView(this);
             tv.setText(rate.getTxt() + "\n" + rate.getCc() + " "+rate.getRate());
             isOdd = !isOdd;
@@ -126,7 +128,9 @@ public class activity_rates extends AppCompatActivity {
             tv.setPadding(7,5,7,5);
             //tv.setLayoutParams(layoutParams);
             container.addView(tv);
+            t.setText(d);
         }
+
     }
 
     class Rate{  //  ORM for JSON
